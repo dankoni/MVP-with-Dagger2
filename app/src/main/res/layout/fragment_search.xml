@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.androidmeetupdemo.search.views.SearchFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="Enter title "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Enter Title to Search"
+        android:layout_below="@id/textView"
+        android:ems="10"
+        android:id="@+id/enterTitle" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_button"
+        android:layout_below="@+id/enterTitle"
+        android:text="search"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchList"
+        android:layout_below="@+id/search_button"
+        />
+</RelativeLayout>
