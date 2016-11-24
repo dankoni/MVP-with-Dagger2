@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.androidmeetupdemo.R;
+import com.androidmeetupdemo.network.di.WeatherDataModule;
+import com.androidmeetupdemo.weather.di.DaggerWeatherComponent;
+import com.androidmeetupdemo.weather.di.WeatherModule;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +31,7 @@ public class WeatherFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_weather,container,false);
         ButterKnife.bind(this,view);
 
+        DaggerWeatherComponent.builder().weatherModule(new WeatherModule()).weatherDataModule(new WeatherDataModule()).build().inject(this);
         return view;
     }
 }
