@@ -13,13 +13,15 @@ import com.androidmeetupdemo.network.di.WeatherDataModule;
 import com.androidmeetupdemo.weather.di.DaggerWeatherComponent;
 import com.androidmeetupdemo.weather.di.WeatherModule;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by danko.misic on 11/18/16.
  */
-public class WeatherFragment extends Fragment{
+public class WeatherFragment extends Fragment implements WeatherView{
 
 
     @BindView(R.id.weather_recycler_view)
@@ -33,5 +35,10 @@ public class WeatherFragment extends Fragment{
 
         DaggerWeatherComponent.builder().weatherModule(new WeatherModule()).weatherDataModule(new WeatherDataModule()).build().inject(this);
         return view;
+    }
+
+    @Override
+    public void updateView(List<Integer> temperature) {
+
     }
 }

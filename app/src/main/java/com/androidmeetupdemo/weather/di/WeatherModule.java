@@ -4,6 +4,8 @@ package com.androidmeetupdemo.weather.di;
 import com.androidmeetupdemo.network.apiservice.WeatherServiceApi;
 import com.androidmeetupdemo.network.di.WeatherDataModule;
 import com.androidmeetupdemo.weather.model.WeatherDataRequests;
+import com.androidmeetupdemo.weather.model.WeatherModel;
+import com.androidmeetupdemo.weather.model.WeatherModelImpl;
 import com.androidmeetupdemo.weather.presenter.WeatherPresenter;
 import com.androidmeetupdemo.weather.presenter.WeatherPresenterImpl;
 import com.androidmeetupdemo.weather.view.WeatherView;
@@ -23,13 +25,16 @@ public class WeatherModule {
         return this.view;
     }
 
-    @Provides
-    WeatherPresenter providePresenter(){
-        return new WeatherPresenterImpl();
-    }
+
 
     @Provides
     WeatherDataRequests provideDataInteractor(WeatherServiceApi  weatherApi){
         return new WeatherDataRequests(weatherApi);
     }
+
+    @Provides
+    WeatherPresenter providePresenter(WeatherDataRequests dataRequests){
+        return new WeatherPresenterImpl(dataRequests);
+    }
+
 }

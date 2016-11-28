@@ -36,20 +36,12 @@ public class WeatherDataRequests {
 
     public Observable<List<Integer>> listOfWeatherForTowns(List<String> towns){
         return Observable.from(towns)
-                .map(new Func1<String, Observable<Integer>>() {
+                .concatMap(new Func1<String, Observable<Integer>>() {
                     @Override
                     public Observable<Integer> call(String s) {
                         return weatherForTown(s);
                     }
-                })
-                .toList()
-                .flatMap(new Func1<List<Observable<Integer>>, Observable<List<Integer>>>() {
-                    @Override
-                    public Observable<List<Integer>> call(List<Observable<Integer>> integers) {
-                        return Observable;
-                    }
-                });
-
+                }).toList();
 
     }
 }
