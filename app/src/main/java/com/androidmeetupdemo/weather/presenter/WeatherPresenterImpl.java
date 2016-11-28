@@ -20,7 +20,7 @@ public class WeatherPresenterImpl implements WeatherPresenter {
     }
 
     @Override
-    public void askForTownData(ArrayList<String> towns) {
+    public void askForTownData(List<String> towns) {
         model.requestForTemp(towns);
     }
 

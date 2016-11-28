@@ -25,12 +25,13 @@ public class WeatherRecyclerAdapter extends RecyclerView.Adapter<WeatherRecycler
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.weather_card,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
-        return null;
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.temperature.setText(String.valueOf(tempData.get(position)));
+        int temperature = tempData.get(position);
+        holder.temperature.setText(String.valueOf(temperature));
 
     }
 
@@ -39,12 +40,11 @@ public class WeatherRecyclerAdapter extends RecyclerView.Adapter<WeatherRecycler
         return tempData.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView temperature;
         public ViewHolder(View itemView) {
             super(itemView);
-            temperature = (TextView) itemView.findViewById(R.id.info_text);
-
+            temperature = (TextView) itemView.findViewById(R.id.temp_text);
         }
     }
 }

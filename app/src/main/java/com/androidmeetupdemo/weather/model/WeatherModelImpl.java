@@ -29,12 +29,12 @@ public class WeatherModelImpl implements WeatherModel{
         dataRequests.listOfWeatherForTowns(towns).subscribeOn(Schedulers.io()).subscribe(new Subscriber<List<Integer>>() {
             @Override
             public void onCompleted() {
-
+                presenter.dataCompiled(null);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                presenter.dataCompiled(null);
             }
 
             @Override
